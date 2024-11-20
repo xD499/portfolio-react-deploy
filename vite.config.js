@@ -5,4 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: "/portfolio-react-deploy/",
+  server: {
+    proxy: {'/option-prices': 'http://localhost:5000',}
+  }
 })

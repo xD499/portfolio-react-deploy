@@ -34,3 +34,46 @@
 .animate-bob {
   animation: bob 2s ease-in-out infinite;
 }
+
+.text-shadow {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.5);
+}
+
+.box-shadow {
+  box-shadow: 0 0 10px rgba(255,255,255,0.1), 0 0 20px rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.5);
+}
+
+.btn {
+  @apply px-6 py-3 bg-white text-black rounded-full md:text-xl text-lg;
+  @apply box-shadow;
+  
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  color: white;
+  /* General hover styles for text and background */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1 {
+  @apply text-5xl font-bold pt-1 mr-10;
+  @apply text-shadow; /* Apply text-shadow class */
+}
+
+@media (min-width: 768px) {
+  h1 {
+      @apply md:text-7xl;
+  }
+}
+
+h2 {
+  @apply text-2xl font-bold;
+  @apply text-shadow; /* Apply text-shadow class */
+}
+
+@media (min-width: 768px) {
+  h2 {
+      @apply md:text-4xl;
+  }
+}
