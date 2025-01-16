@@ -1,5 +1,5 @@
 import { Line } from "react-chartjs-2";
-import React from "react";
+import React, { useState } from "react";
 import {
     Chart as ChartJS,
     LineElement,
@@ -12,20 +12,22 @@ import {
 
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Tooltip, Legend);
 
-const LineChart = () => {
+export default function LineChart({liveData}){
+  const cappedLiveData = liveData.slice(-60);
+  const series = cappedLiveData.map((_, index)=>index+1)
   const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+    labels: series,
     datasets: [
       {
-        label: 'Sample Data',
-        data: [10, 20, 15, 30, 25, 40],
+        label: 'Live Price',
+        data: cappedLiveData,
         fill: false,
         borderColor: 'rgba(75,192,192,1)',
         tension: 0.4,
       },
     ],
   };
-
+  
   const options = {
     responsive: true,
     plugins: {
@@ -46,12 +48,10 @@ const LineChart = () => {
           display: true,
           text: 'Values',
         },
-        beginAtZero: true,
+        beginAtZero: false,
       },
     },
   };
 
   return <Line data={data} options={options} />;
 };
-
-export default LineChart;

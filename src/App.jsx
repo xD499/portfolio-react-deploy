@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import Hero from './components/Hero';
+import Ws from './components/Live Price Chart/ws';
 import './index.css'
 export default function App() {
   return (
